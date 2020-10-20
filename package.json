@@ -1,0 +1,22 @@
+{
+  "name": "cryptography-js",
+  "version": "1.0.0",
+  "description": "Implementations of various cryptography algorithms in JavaScript.",
+  "main": "commandline.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ganeshh123/cryptography-js.git"
+  },
+  "author": "Ganesh H",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ganeshh123/cryptography-js/issues"
+  },
+  "homepage": "https://github.com/ganeshh123/cryptography-js#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
