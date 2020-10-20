@@ -1,5 +1,7 @@
 let ceaesersCipher = (message, shift) => {
 
+    let outputs = []
+
     let cipherText = ''
 
     let i
@@ -22,11 +24,15 @@ let ceaesersCipher = (message, shift) => {
             }
             cipherText = cipherText + String.fromCharCode(cipherCharCode)
         }else{
-            return 'Error: Invalid Characters in String'
+            outputs[0] = 'Error: Invalid Characters in String'
+            return outputs
         }
         console.log(message.charAt(i) + ' with code ' + messageCharCode + ' has become ' + String.fromCharCode(cipherCharCode) + ' with code ' + cipherCharCode)
     }
-    return cipherText
+    
+    outputs[0] = cipherText
+
+    return outputs
 }
 
 try {

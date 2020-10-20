@@ -6,25 +6,41 @@ let readlineSync = require('readline-sync')
 
 /* Execute Algorithm */
 let executeAlgorithm = (algorithm) => {
-    let arguments = []
-    console.log('\n' + algorithm['name'])
+    let inputs = []
+    console.log('\n:::::::::::::::::::::::::::::::::::::::::')
+    console.log(algorithm['name'])
     console.log('\nPlease enter the following information : ')
-    algorithm['arguments'].forEach((argument) => {
-        let inputArgument = readlineSync.question(argument + ' : ')
-        arguments.push(inputArgument)
+    algorithm['inputLabels'].forEach((inputLabel) => {
+        let inputArgument = readlineSync.question(inputLabel + ' : ')
+        inputs.push(inputArgument)
     })
-    console.log('')
-    let output = algorithm['func'].apply(null, arguments)
-    console.log('\nResult is ' + output)
+
+    console.log('\nExecuting ... ')
+    console.log('---------------------')
+    let outputs = algorithm['func'].apply(null, inputs)
+    console.log('---------------------')
+    console.log('\nResults:\n')
+    algorithm['outputLabels'].forEach((outpuLabel, index) => {
+        console.log(outpuLabel + ' : ' + outputs[index])
+    })
+    console.log('\n:::::::::::::::::::::::::::::::::::::::::')
 }
 
 
 
 console.log('\nCryptography Algorithms')
-console.log('\nAvailable Algorithms :\n')
-Algorithms.forEach((algorithm, index) => {
-    console.log(index + ' - ' + algorithm['name'])
-})
-console.log('\nEnter the number of the algortihm you wish to run')
-let choice = readlineSync.question('Your Choice : ')
-executeAlgorithm(Algorithms[choice])
+console.log('---------------------')
+let exit = false
+while(!exit){
+    console.log('\nAvailable Algorithms :\n')
+    Algorithms.forEach((algorithm, index) => {
+        console.log(index + ' - ' + algorithm['name'])
+    })
+    console.log('\nEnter the number of the algortihm you wish to run (enter q to exit)')
+    let choice = readlineSync.question('Your Choice : ')
+    if(isNaN(choice)){
+        exit = true
+    }else{
+        executeAlgorithm(Algorithms[choice])
+    }
+}

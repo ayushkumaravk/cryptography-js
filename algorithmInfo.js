@@ -4,7 +4,7 @@ let ceaesersCipher = require('./algorithms/caesers-cipher')
 
 /* Array of Algorithms */
 let Algorithms = [
-    {name: 'Caesers Cipher', func: ceaesersCipher, arguments: ['Message', 'Shift']}
+    {name: 'Caesers Cipher', func: ceaesersCipher, inputLabels: ['Message', 'Shift'], outputLabels: ['Encrypted Message']}
 ]
 
 
